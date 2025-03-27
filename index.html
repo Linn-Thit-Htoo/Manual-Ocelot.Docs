@@ -183,9 +183,6 @@ app.UseOcelot();
                 "Port": 5027
             }
         ],
-        "LoadBalancerOptions": {
-            "Type": "RoundRobin"
-        },
         "DownstreamPathTemplate": "/api/Blog/{everything}",
         "DownstreamScheme": "http"
     }
