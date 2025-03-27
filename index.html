@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PPM.Ocelot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-white">
+    <header class="fixed inset-x-0 top-0 z-50 bg-white shadow-md">
+      <nav
+        class="flex items-center justify-between p-6 lg:px-8"
+        aria-label="Global"
+      >
+        <div class="flex lg:flex-1">
+          <h1 style="font-size: larger; font-weight: bold">PPM.Ocelot</h1>
+        </div>
+        <div class="lg:hidden">
+          <button id="mobileMenuButton" class="p-2.5 text-gray-700">
+            <svg
+              class="w-6 h-6"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="hidden lg:flex lg:gap-x-12">
+          <a
+            href="#introductionSection"
+            class="text-sm font-semibold text-gray-900"
+            >Introduction</a
+          >
+          <a href="#gettingStarted" class="text-sm font-semibold text-gray-900"
+            >Getting Started</a
+          >
+        </div>
+      </nav>
+    </header>
+
+    <div
+      id="mobileMenu"
+      class="hidden fixed inset-0 z-50 bg-white p-6 sm:max-w-sm"
+    >
+      <button id="closeMenuButton" class="p-2.5 text-gray-700">
+        <svg
+          class="w-6 h-6"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+      <nav class="mt-6 space-y-2">
+        <a
+          href="#introductionSection"
+          class="block px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50"
+          >Introduction</a
+        >
+        <a
+          href="#gettingStarted"
+          class="block px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50"
+          >Getting Started</a
+        >
+      </nav>
+    </div>
+
+    <main class="relative px-6 pt-20 lg:px-8">
+      <section
+        id="introductionSection"
+        class="max-w-2xl mx-auto py-32 sm:py-48 lg:py-56 text-center"
+      >
+        <h1 class="text-5xl font-semibold text-gray-900 sm:text-7xl">
+          PPM.Ocelot
+        </h1>
+        <p class="mt-8 text-lg font-medium text-gray-500 sm:text-xl">
+          Custom implementation of API gateway which features including dynamic
+          routing, load balancing, service discovery, rate limiting,
+          authentication, and scope-based authorization.
+        </p>
+        <div
+          class="mt-10 flex justify-center gap-x-6"
+          style="align-items: center"
+        >
+          <a
+            href="#gettingStarted"
+            class="px-4 py-2 text-sm font-semibold text-white bg-indigo-600 rounded-md hover:bg-indigo-500"
+            >Get started</a
+          >
+          <a href="#gettingStarted" class="text-sm font-semibold text-gray-900"
+            >Read the Docs →</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <div
+      class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md"
+      id="gettingStarted"
+    >
+      <h1 class="text-2xl font-bold mb-4">Getting Started</h1>
+
+      <!-- Installing NuGet Package -->
+      <div class="mb-6">
+        <h2 class="text-xl font-semibold mb-2">1. Install the NuGet Package</h2>
+        <pre
+          class="bg-gray-900 text-white p-4 rounded-lg overflow-x-auto"
+        ><code>dotnet add package PPM.Ocelot</code></pre>
+      </div>
+
+      <div class="mb-6">
+        <h2 class="text-xl font-semibold mb-2">
+          2. Install Other Dependencies (Due to service discovery)
+        </h2>
+        <pre
+          class="bg-gray-900 text-white p-4 rounded-lg overflow-x-auto"
+        ><code class="language-xml">
+&lt;PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.13" /&gt;
+&lt;PackageReference Include="Newtonsoft.Json" Version="13.0.3" /&gt;
+&lt;PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.2"&gt;
+&lt;PrivateAssets&gt;all&lt;/PrivateAssets&gt;
+&lt;IncludeAssets&gt;runtime; build; native; contentfiles; analyzers; buildtransitive&lt;/IncludeAssets&gt;
+&lt;/PackageReference&gt;
+&lt;PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" /&gt;
+&lt;PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.Design" Version="1.1.0" /&gt;
+        </code></pre>
+      </div>
+
+      <!-- Configuration in appsettings.json -->
+      <div class="mb-6">
+        <h2 class="text-xl font-semibold mb-2">
+          3. Configure Ocelot (ocelot.json, ocelot.Development.json,
+          ocelot.Production.json)
+        </h2>
+        <pre class="bg-gray-900 text-white p-4 rounded-lg overflow-x-auto">
+        <code>
+{
+    "Routes": [],
+    "GlobalConfiguration": {
+    "BaseUrl": "https://api.mybusiness.com"
+    }
+}</code>
+</pre>
+      </div>
+
+      <div class="mb-6">
+        <h2 class="text-xl font-semibold mb-2">4. Add Routes</h2>
+        <pre class="bg-gray-900 text-white p-4 rounded-lg overflow-x-auto">
+        <code>
+"Routes": [
+    {
+        "UpstreamPathTemplate": "/api/gateway/Blog/{everything}",
+        "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+        "DownstreamHostAndPorts": [
+            {
+                "Host": "localhost",
+                "Port": 5027
+            }
+        ],
+        "LoadBalancerOptions": {
+            "Type": "RoundRobin"
+        },
+        "DownstreamPathTemplate": "/api/Blog/{everything}",
+        "DownstreamScheme": "http"
+    }
+]
+        </code>
+</pre>
+      </div>
+
+      <div class="mb-6">
+        <h2 class="text-xl font-semibold mb-2">5. Add Load Balancing</h2>
+        <span
+          >Supports 2 load balancing algorithms (RoundRobin,
+          LeastConnection).</span
+        >
+        <pre class="bg-gray-900 mt-3 text-white p-4 rounded-lg overflow-x-auto">
+        <code>
+"LoadBalancerOptions": {
+    "Type": "RoundRobin"
+}
+        </code>
+</pre>
+      </div>
+
+      <div class="mb-6">
+        <h2 class="text-xl font-semibold mb-2">
+          6. Add Authentication and scope-based authorization
+        </h2>
+        <span
+          >Supports 2 load balancing algorithms (RoundRobin,
+          LeastConnection).</span
+        >
+        <pre class="bg-gray-900 mt-3 text-white p-4 rounded-lg overflow-x-auto">
+        <code>
+"AuthenticationOptions": {
+    "AuthenticationProviderKey": "Bearer",
+    "AllowedScopes": []
+}
+        </code>
+</pre>
+      </div>
+
+      <div class="mb-6">
+        <h2 class="text-xl font-semibold mb-2">7. Add Rate limiting</h2>
+        <span
+          >You can whitelist the client IP addresses. To use rate limiting
+          feature, you must set EnableRateLimiting to true. If the limit has
+          over, you have to wait according to the PeriodTimespan.</span
+        >
+        <pre class="bg-gray-900 mt-3 text-white p-4 rounded-lg overflow-x-auto">
+        <code>
+"RateLimitOptions": {
+    "ClientWhitelist": [], // IP whitelist
+    "EnableRateLimiting": true, // this must be set to true
+    "PeriodTimespan": 100, // seconds
+    "Limit": 1 // count
+}
+        </code>
+</pre>
+      </div>
+
+      <div class="mb-6">
+        <h2 class="text-xl font-semibold mb-2">
+          8. Service Discovery (currently deprecated)
+        </h2>
+        <span
+          >Supports 2 load balancing algorithms (RoundRobin,
+          LeastConnection).</span
+        >
+        <pre class="bg-gray-900 mt-3 text-white p-4 rounded-lg overflow-x-auto">
+        <code>
+"ServiceName": "auth"
+        </code>
+</pre>
+      </div>
+    </div>
+
+    <script>
+      const mobileMenu = document.getElementById("mobileMenu");
+      const mobileMenuButton = document.getElementById("mobileMenuButton");
+      const closeMenuButton = document.getElementById("closeMenuButton");
+
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+      closeMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+      });
+    </script>
+  </body>
+</html>
