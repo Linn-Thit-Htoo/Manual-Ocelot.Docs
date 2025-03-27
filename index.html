@@ -122,6 +122,17 @@
           class="bg-gray-900 text-white p-4 rounded-lg overflow-x-auto"
         ><code>dotnet add package PPM.Ocelot</code></pre>
       </div>
+      
+      <div class="mb-6">
+        <h2 class="text-xl font-semibold mb-2">2. Dependency Injection</h2>
+        <pre
+          class="bg-gray-900 text-white p-4 rounded-lg overflow-x-auto"
+        ><code>
+builder.Services.AddOcelot(builder);
+
+app.UseOcelot();
+        </code></pre>
+      </div>
 
       <div class="mb-6">
         <h2 class="text-xl font-semibold mb-2">
